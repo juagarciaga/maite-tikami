@@ -23,7 +23,7 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section className="py-16 bg-white">
+        <section id="services" className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
               Serviços
@@ -58,7 +58,7 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section className="py-16 bg-gray-50">
+        <section id="about" className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -73,6 +73,28 @@ export default function Home() {
                 Nossa missão é proporcionar não apenas saúde bucal, mas também 
                 autoestima e qualidade de vida através de um sorriso bonito e saudável.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                Contato
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Entre em contato para agendar sua consulta e transformar seu sorriso.
+              </p>
+              <div className="bg-blue-50 p-8 rounded-lg">
+                <p className="text-xl text-gray-700 mb-2">
+                  📧 Entre em contato para mais informações
+                </p>
+                <p className="text-lg text-gray-600">
+                  Segunda a Sexta: 9h - 18h
+                </p>
+              </div>
             </div>
           </div>
         </section>
