@@ -1,14 +1,16 @@
+import "./Header.css";
+
 export default function Header() {
   return (
-    <header className="bg-white/95 backdrop-blur-sm shadow-sm fixed w-full top-0 z-50">
+    <header className="header">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img src="/images/logo.jpeg" alt="Maitê Tikami Logo" className="h-10 w-auto" />
+            <img src="/images/logo.jpeg" alt="Maitê Tikami Logo" className="h-10 w-auto" width={100} height={100} />
             <div className="h-8 w-px bg-[#C4A98A]"></div>
             <div>
-              <span className="text-[#C4A98A] text-xl tracking-wide" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              <span className="text-[#C4A98A] text-xl tracking-wide logo-text">
                 Maitê Tikami
               </span>
             </div>

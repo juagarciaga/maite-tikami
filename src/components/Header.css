@@ -1,0 +1,13 @@
+.header {
+  position: fixed;
+  top: 0;
+  background: white;
+  width: 100vw;
+  display: flex;
+  z-index: 1;
+  margin: 0 0 25px;
+}
+
+.logo-text {
+  font-family: 'Cormorant Garamond', serif;
+}
