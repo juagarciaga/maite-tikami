@@ -12,11 +12,11 @@ export function AboutSection() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
                             <Image
-                                src="/images/dr-maite-3.png"
+                                src="/images/dr-maite-1.png"
                                 alt="Dra. Maitê Tikami"
                                 width={600}
                                 height={500}
-                                className="w-full h-[500px] object-cover rounded-lg shadow-xl"
+                                className="w-full h-[500px] object-contain rounded-lg"
                             />
                         </div>
                         <div className="space-y-6">

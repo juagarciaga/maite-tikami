@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import "antd/dist/reset.css";
 import "@/styles/index.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Maitê Tikami - Odontologia Estética e Implantes",
+  title: "Dra. Maitê Tikami - Odontologia Estética e Implantes",
   description: "Sua saúde e seu sorriso são a minha missão",
   icons: {
     icon: "/images/simbolo1.png",

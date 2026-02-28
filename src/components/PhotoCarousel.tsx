@@ -5,21 +5,21 @@ import Image from "next/image";
 
 const carouselImages = [
   {
-    url: "consultorio.png",
+    url: "consultorio3.jpeg",
     alt: "Recepção moderna da clínica"
   },
   {
-    url: "consultorio.png",
+    url: "consultorio2.png",
     alt: "Atendimento personalizado"
-  },
-  {
-    url: "consultorio.png",
-    alt: "Tecnologia de ponta"
-  },
-  {
-    url: "consultorio.png",
-    alt: "Pacientes satisfeitos"
   }
+  // {
+  //   url: "dr-maite-2.png",
+  //   alt: "Tecnologia de ponta"
+  // },
+  // {
+  //   url: "dr-maite-3.png",
+  //   alt: "Pacientes satisfeitos"
+  // }
 ];
 
 export function PhotoCarousel() {
@@ -48,7 +48,7 @@ export function PhotoCarousel() {
                     height={1000}
                     src={`/images/${image.url}`}
                     alt={image.alt}
-                    className="w-full h-[400px] md:h-[600px] object-cover rounded-lg"
+                    className="w-full h-[400px] md:h-[600px] object-contain rounded-lg"
                   />
                 </div>
               </div>

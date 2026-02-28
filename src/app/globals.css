@@ -49,3 +49,7 @@ h1, h2, h3, h4 {
     padding: 6rem 0 0;
   }
 }
+
+button {
+  cursor: pointer;
+}

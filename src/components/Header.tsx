@@ -8,9 +8,9 @@ export function Header() {
           <Image
             src="/images/logo1.png"
             alt="Dra. Maitê Tikami"
-            width={300}
+            width={400}
             height={100}
-            className="w-full h-[100px] object-cover rounded-lg shadow-xl"
+            className="w-full h-[100px] object-contain rounded-lg"
           />
         </div>
         <nav className="hidden md:flex gap-8">
