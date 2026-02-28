@@ -1,7 +1,8 @@
 import { handleClickToWhatsApp } from "./WhatsAppButton";
 
 const YOUTUBE_VIDEO_ID = "m_oXKiHRCho";
-const YOUTUBE_EMBED_PARAMS = "autoplay=1&mute=1&loop=1&playlist=m_oXKiHRCho&controls=0&showinfo=0&rel=0";
+const YOUTUBE_EMBED_PARAMS =
+  "autoplay=1&mute=1&playsinline=1&loop=1&playlist=m_oXKiHRCho&controls=0&showinfo=0&rel=0";
 
 export function HeroSection() {
   return (
