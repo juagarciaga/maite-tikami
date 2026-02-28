@@ -14,6 +14,16 @@ import {
 const testimonials = [
   {
     quote:
+      '"Maitê foi super atenciosa no meu atendimento é uma excelente profissional! Recomendo a todos que precisarem! Me explicou todos os procedimentos e estou adorando os resultados! Muito feliz mesmo!"',
+    author: "Pedro Benelli",
+  },
+  {
+    quote:
+      '"A melhor odontóloga que já tive na minha vida. A Maitê desde o começo fez uma avaliação bastante descriptiva em relação aos procedimentos da consulta. Usou ferramentas para executar seu trabalho da melhor forma que nunca vi outro odontólogo(a) usar. E, contrário a outras consultas que já tive, não senti nenhum desconforto. Super recomendada."',
+    author: "Juan Sebastian Ruiz Acero",
+  },
+  {
+    quote:
       '"Fui muito bem acolhida desde a primeira consulta. A Dra. Maitê explicou tudo com calma e hoje tenho um sorriso que amo mostrar."',
     author: "Ana Paula",
   },

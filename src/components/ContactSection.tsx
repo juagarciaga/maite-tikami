@@ -26,7 +26,7 @@ export function ContactSection() {
                   </div>
                   <div className="flex items-center gap-4">
                     <Mail className="w-6 h-6 text-[#A89484] flex-shrink-0" />
-                    <p className="text-[#3D3832]">contato@maitetikami.com.br</p>
+                    <p className="text-[#3D3832]">odontologia.tikami@gmail.com</p>
                   </div>
                   <div className="flex items-center gap-4">
                     <Instagram className="w-6 h-6 text-[#A89484] flex-shrink-0" />
