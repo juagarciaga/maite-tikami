@@ -1,10 +1,71 @@
+"use client";
+
+import { useCallback, useEffect, useRef } from "react";
 import { handleClickToWhatsApp } from "./WhatsAppButton";
 
 const YOUTUBE_VIDEO_ID = "m_oXKiHRCho";
 const YOUTUBE_EMBED_PARAMS =
-  "autoplay=1&mute=1&playsinline=1&loop=1&playlist=m_oXKiHRCho&controls=0&showinfo=0&rel=0";
+  "autoplay=1&mute=1&playsinline=1&loop=1&playlist=m_oXKiHRCho&controls=0&showinfo=0&rel=0&enablejsapi=1";
+
+declare global {
+  interface Window {
+    YT?: {
+      Player: new (element: HTMLIFrameElement) => YTPlayer;
+      ready?: (fn: () => void) => void;
+    };
+  }
+}
+
+interface YTPlayer {
+  playVideo: () => void;
+  unMute: () => void;
+}
 
 export function HeroSection() {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const playerRef = useRef<YTPlayer | null>(null);
+
+  const loadYouTubeAPI = useCallback(() => {
+    const initPlayer = () => {
+      if (iframeRef.current && !playerRef.current) {
+        playerRef.current = new window.YT!.Player(iframeRef.current);
+      }
+    };
+    if (window.YT?.ready) {
+      window.YT.ready(initPlayer);
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = "https://www.youtube.com/iframe_api";
+    script.async = true;
+    document.body.appendChild(script);
+    script.onload = () => {
+      window.YT?.ready?.(initPlayer);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (iframeRef.current && window.YT?.Player) {
+      loadYouTubeAPI();
+    } else {
+      const check = setInterval(() => {
+        if (iframeRef.current) {
+          loadYouTubeAPI();
+          clearInterval(check);
+        }
+      }, 100);
+      return () => clearInterval(check);
+    }
+  }, [loadYouTubeAPI]);
+
+  const handlePlayVideo = useCallback(() => {
+    const player = playerRef.current;
+    if (player) {
+      player.unMute();
+      player.playVideo();
+    }
+  }, []);
+
   return (
     <section
       id="inicio"
@@ -16,6 +77,7 @@ export function HeroSection() {
         aria-hidden
       >
         <iframe
+          ref={iframeRef}
           src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?${YOUTUBE_EMBED_PARAMS}`}
           title="Vídeo de fundo"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -29,17 +91,31 @@ export function HeroSection() {
         aria-hidden
       />
       <div className="container relative z-10 mx-auto px-4 py-5 lg:py-20">
-        <div className="max-w-4xl mx-auto text-center">
+        <div
+          className="max-w-4xl mx-auto text-center cursor-pointer select-none"
+          onClick={handlePlayVideo}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              handlePlayVideo();
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Reproduzir vídeo de fundo"
+        >
           <h1 className="text-4xl md:text-6xl mb-6 text-[#3D3832]">
             Odontologia com planejamento, tecnologia e cuidado individualizado para você
           </h1>
           <p className="text-lg md:text-xl text-[#8B7968] mb-8">
             Cuidamos do seu sorriso com excelência e dedicação
           </p>
+        </div>
+        <div className="container relative z-10 mx-auto text-center">
           <button
             type="button"
             onClick={handleClickToWhatsApp}
-            className="inline-flex items-center justify-center rounded-full bg-[#A89484] px-8 py-4 text-lg font-medium text-white shadow-lg transition-colors duration-300 hover:bg-[#8B7968] focus:outline-none focus:ring-2 focus:ring-[#A89484] focus:ring-offset-2 active:bg-[#7a6b5d]"
+            className="inline-flex items-center justify-center rounded-full bg-[#A89484] px-8 py-4 text-lg font-medium text-white shadow-lg transition-colors duration-300 hover:bg-[#8B7968] focus:outline-none focus:ring-2 focus:ring-[#A89484] focus:ring-offset-2 active:bg-[#7a6b5d] mx-a"
           >
             Agende sua consulta
           </button>
