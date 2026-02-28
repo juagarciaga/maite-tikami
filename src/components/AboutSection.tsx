@@ -33,6 +33,9 @@ export function AboutSection() {
                                 nossos pacientes, priorizando o conforto, a segurança e resultados excepcionais
                                 em cada procedimento.
                             </p>
+                            <p>
+                                Aqui no consultório, estou comprometida em fornecer tratamentos odontológicos de alta qualidade para toda a família. Desde limpezas e check-ups regulares até procedimentos mais complexos como cirurgias de implantes e reabilitações tudo isso para cuidar de você e da sua saúde bucal. Formada pela UNICAMP e especialista pela SÃO LEOPOLDO MANDIC
+                            </p>
                             <div className="grid grid-cols-2 gap-6 mt-8">
                                 <div className="bg-white p-6 rounded-lg shadow-md">
                                     <div className="text-3xl text-[#A89484] mb-2">1000+</div>

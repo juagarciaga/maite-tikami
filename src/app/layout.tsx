@@ -5,9 +5,6 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Dra. Maitê Tikami - Odontologia Estética e Implantes",
   description: "Sua saúde e seu sorriso são a minha missão",
-  icons: {
-    icon: "/images/simbolo1.png",
-  },
 };
 
 export default function RootLayout({
