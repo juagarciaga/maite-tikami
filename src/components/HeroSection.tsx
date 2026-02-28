@@ -1,68 +1,24 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
+import { handleClickToWhatsApp } from "./WhatsAppButton";
 
-import { Button, Col, Row, Typography } from "antd";
-
-const { Title, Paragraph } = Typography;
-
-export default function HeroSection() {
+export function HeroSection() {
   return (
-    <section className="hero-section">
-      <div className="max-w-6xl mx-auto px-4">
-        <Row gutter={[48, 32]} align="middle">
-          <Col xs={24} md={14}>
-            <div className="text-center md:text-left">
-              <Title
-                level={1}
-                className="mb-4 !text-[2.4rem] md:!text-[3.2rem] lg:!text-[3.6rem] !leading-tight !font-light"
-                style={{
-                  color: "#4A3728",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontStyle: "italic"
-                }}
-              >
-                Sua saúde e seu sorriso
-                <br />
-                <span className="text-[#8B6F5C]">são a minha missão</span>
-              </Title>
-              <Paragraph
-                className="max-w-xl mx-auto md:mx-0 mb-8 !text-base md:!text-lg"
-                style={{ color: "#5C4A3D" }}
-              >
-                Transforme seu sorriso com excelência em odontologia
-                estética e implantes. Cuidado personalizado, ambiente
-                acolhedor e tecnologia de ponta para você se sentir seguro
-                em cada etapa do tratamento.
-              </Paragraph>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                <Button
-                  type="primary"
-                  size="large"
-                  href="#contato"
-                  className="!rounded-full !px-10 !h-12 !text-xs !tracking-[0.25em] !uppercase shadow-md hover:shadow-lg"
-                  style={{
-                    background: "#4A3728",
-                    borderColor: "#4A3728"
-                  }}
-                >
-                  Agendar consulta
-                </Button>
-              </div>
-            </div>
-          </Col>
-
-          <Col xs={24} md={10}>
-            <div className="flex justify-center md:justify-end">
-              <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-[#e6d4c3] bg-[#f8f1ea]/60 backdrop-blur-sm">
-                <img
-                  src="/images/hero2.png"
-                  alt="Dra. Maitê Tikami - Dentista"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </Col>
-        </Row>
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F8F4F0] to-[#F5F0EB] pt-20">
+      <div className="container mx-auto px-4 py-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl mb-6 text-[#3D3832]">
+            Odontologia com planejamento, tecnologia e planejamento individualizado para você
+          </h1>
+          <p className="text-lg md:text-xl text-[#8B7968] mb-8">
+            Cuidamos do seu sorriso com excelência e dedicação
+          </p>
+          <button
+            type="button"
+            onClick={handleClickToWhatsApp}
+            className="inline-flex items-center justify-center rounded-full bg-[#A89484] px-8 py-4 text-lg font-medium text-white shadow-lg transition-colors duration-300 hover:bg-[#8B7968] focus:outline-none focus:ring-2 focus:ring-[#A89484] focus:ring-offset-2 active:bg-[#7a6b5d]"
+          >
+            Agende sua consulta
+          </button>
+        </div>
       </div>
     </section>
   );

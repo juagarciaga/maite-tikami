@@ -1,46 +1,67 @@
-"use client";
+import { Smile, Sparkles, Stethoscope, UserCheck, Heart, Shield } from "lucide-react";
 
-import { Card, Col, Row, Typography } from "antd";
+const services = [
+  {
+    icon: Smile,
+    title: "Odontologia Estética",
+    description: "Transforme seu sorriso com procedimentos estéticos modernos e eficazes."
+  },
+  {
+    icon: Sparkles,
+    title: "Clareamento Dental",
+    description: "Recupere o branco natural dos seus dentes com técnicas seguras e comprovadas."
+  },
+  {
+    icon: Stethoscope,
+    title: "Implantes Dentários",
+    description: "Soluções permanentes para substituição de dentes com tecnologia avançada."
+  },
+  {
+    icon: UserCheck,
+    title: "Ortodontia",
+    description: "Aparelhos ortodônticos personalizados para alinhar seu sorriso."
+  },
+  {
+    icon: Heart,
+    title: "Odontopediatria",
+    description: "Cuidado especial e atencioso para a saúde bucal das crianças."
+  },
+  {
+    icon: Shield,
+    title: "Prevenção",
+    description: "Acompanhamento regular para manter a saúde e beleza do seu sorriso."
+  }
+];
 
-const { Title, Paragraph } = Typography;
-
-export default function TreatmentsSection() {
+export function TreatmentsSection() {
   return (
-    <section id="tratamentos" className="py-16 bg-[#f8f1ea]">
-      <div className="max-w-6xl mx-auto px-4">
-        <Row gutter={[24, 24]} align="middle">
-          <Col xs={24} md={14}>
-            <Title
-              level={3}
-              style={{ color: "#4A3728" }}
-              className="mb-3"
-            >
-              Tratamentos completos para saúde e estética do seu sorriso
-            </Title>
-            <Paragraph style={{ color: "#5C4A3D" }} className="mb-4">
-              Da prevenção ao planejamento de casos complexos, oferecemos
-              soluções integradas que unem funcionalidade, estética e
-              bem-estar.
-            </Paragraph>
-            <ul className="space-y-2 text-sm md:text-base text-[#5C4A3D]">
-              <li>• Reabilitação oral com foco em conforto e durabilidade</li>
-              <li>• Planejamento digital do sorriso</li>
-              <li>• Atenção especial a pacientes ansiosos</li>
-            </ul>
-          </Col>
-          <Col xs={24} md={10}>
-            <Card className="rounded-3xl shadow-lg bg-white/90">
-              <Title level={5} style={{ color: "#4A3728" }} className="mb-2">
-                Um olhar atento a cada caso
-              </Title>
-              <Paragraph style={{ color: "#5C4A3D" }} className="mb-0">
-                Durante a consulta, dedicamos tempo para ouvir suas
-                expectativas, explicar cada etapa e criar um plano que faça
-                sentido para você hoje e no futuro.
-              </Paragraph>
-            </Card>
-          </Col>
-        </Row>
+    <section id="servicos" className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl text-center mb-4 text-[#3D3832]">
+            Nossos Serviços
+          </h2>
+          <p className="text-center text-[#8B7968] text-lg mb-16 max-w-2xl mx-auto">
+            Oferecemos uma ampla gama de serviços odontológicos com tecnologia de ponta
+            e atendimento personalizado
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-[#F8F4F0] to-[#F5F0EB] p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow"
+              >
+                <service.icon className="w-12 h-12 text-[#A89484] mb-4" />
+                <h3 className="text-xl mb-3 text-[#3D3832]">
+                  {service.title}
+                </h3>
+                <p className="text-[#8B7968] leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,95 +1,67 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
+import { Smile, Sparkles, Stethoscope, UserCheck, Heart, Shield } from "lucide-react";
 
-import { Card, Col, Row, Typography } from "antd";
+const services = [
+  {
+    icon: Smile,
+    title: "Odontologia Estética",
+    description: "Transforme seu sorriso com procedimentos estéticos modernos e eficazes."
+  },
+  {
+    icon: Sparkles,
+    title: "Clareamento Dental",
+    description: "Recupere o branco natural dos seus dentes com técnicas seguras e comprovadas."
+  },
+  {
+    icon: Stethoscope,
+    title: "Implantes Dentários",
+    description: "Soluções permanentes para substituição de dentes com tecnologia avançada."
+  },
+  {
+    icon: UserCheck,
+    title: "Ortodontia",
+    description: "Aparelhos ortodônticos personalizados para alinhar seu sorriso."
+  },
+  {
+    icon: Heart,
+    title: "Odontopediatria",
+    description: "Cuidado especial e atencioso para a saúde bucal das crianças."
+  },
+  {
+    icon: Shield,
+    title: "Prevenção",
+    description: "Acompanhamento regular para manter a saúde e beleza do seu sorriso."
+  }
+];
 
-const { Title, Paragraph, Text } = Typography;
-
-export default function ServicesSection() {
+export function ServicesSection() {
   return (
-    <section id="servicos" className="py-20 bg-[#f8f1ea]">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-10">
-          <Text className="tracking-[0.3em] uppercase text-xs text-[#c09c78]">
-            Tratamentos
-          </Text>
-          <Title
-            level={2}
-            className="mt-3 mb-2 !text-3xl md:!text-4xl"
-            style={{ color: "#4A3728" }}
-          >
-            Nossos serviços
-          </Title>
-          <div className="w-16 h-[3px] bg-[#c09c78] mx-auto rounded-full" />
+    <section id="servicos" className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl text-center mb-4 text-[#3D3832]">
+            Nossos Serviços
+          </h2>
+          <p className="text-center text-[#8B7968] text-lg mb-16 max-w-2xl mx-auto">
+            Oferecemos uma ampla gama de serviços odontológicos com tecnologia de ponta
+            e atendimento personalizado
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-[#F8F4F0] to-[#F5F0EB] p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow"
+              >
+                <service.icon className="w-12 h-12 text-[#A89484] mb-4" />
+                <h3 className="text-xl mb-3 text-[#3D3832]">
+                  {service.title}
+                </h3>
+                <p className="text-[#8B7968] leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-
-        <Row gutter={[24, 24]} justify="center">
-          <Col xs={24} md={8}>
-            <Card
-              hoverable
-              className="rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all bg-white"
-              cover={
-                <img
-                  src="/images/oro1.png"
-                  alt="Odontologia estética"
-                  className="h-52 w-full object-cover"
-                />
-              }
-            >
-              <Title level={4} style={{ color: "#4A3728" }} className="mb-2">
-                Odontologia estética
-              </Title>
-              <Paragraph className="!mb-0" style={{ color: "#5C4A3D" }}>
-                Clareamento, facetas e design de sorriso pensados para realçar
-                a sua beleza natural com resultados delicados e harmônicos.
-              </Paragraph>
-            </Card>
-          </Col>
-
-          <Col xs={24} md={8}>
-            <Card
-              hoverable
-              className="rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all bg-white"
-              cover={
-                <img
-                  src="/images/oro2.png"
-                  alt="Implantes dentários"
-                  className="h-52 w-full object-cover"
-                />
-              }
-            >
-              <Title level={4} style={{ color: "#4A3728" }} className="mb-2">
-                Implantes dentários
-              </Title>
-              <Paragraph className="!mb-0" style={{ color: "#5C4A3D" }}>
-                Soluções modernas para repor dentes com segurança e conforto,
-                devolvendo função mastigatória e confiança ao sorrir.
-              </Paragraph>
-            </Card>
-          </Col>
-
-          <Col xs={24} md={8}>
-            <Card
-              hoverable
-              className="rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all bg-white"
-              cover={
-                <img
-                  src="/images/oro3.png"
-                  alt="Atendimento humanizado"
-                  className="h-52 w-full object-cover"
-                />
-              }
-            >
-              <Title level={4} style={{ color: "#4A3728" }} className="mb-2">
-                Atendimento humanizado
-              </Title>
-              <Paragraph className="!mb-0" style={{ color: "#5C4A3D" }}>
-                Um cuidado próximo, escuta atenta e ambiente acolhedor para
-                que cada visita seja leve e tranquila.
-              </Paragraph>
-            </Card>
-          </Col>
-        </Row>
       </div>
     </section>
   );
