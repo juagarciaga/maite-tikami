@@ -1,0 +1,34 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Slick Carousel Custom Styles */
+.slick-dots li button:before {
+  color: #A89484 !important;
+  font-size: 12px !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #A89484 !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #A89484 !important;
+  font-size: 30px !important;
+}
+
+.slick-prev {
+  left: 25px !important;
+  z-index: 10 !important;
+}
+
+.slick-next {
+  right: 25px !important;
+  z-index: 10 !important;
+}
