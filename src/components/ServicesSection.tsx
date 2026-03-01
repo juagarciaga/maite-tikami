@@ -1,4 +1,4 @@
-import { Smile, Sparkles, Stethoscope, UserCheck, Heart, Shield } from "lucide-react";
+import { Smile, Sparkles, Stethoscope, UserCheck, Zap, Shield } from "lucide-react";
 
 const services = [
   {
@@ -22,9 +22,9 @@ const services = [
     description: "Aparelhos ortodônticos personalizados para alinhar seu sorriso."
   },
   {
-    icon: Heart,
-    title: "Odontopediatria",
-    description: "Cuidado especial e atencioso para a saúde bucal das crianças."
+    icon: Zap,
+    title: "Harmonização Orofacial",
+    description: "União entre odontologia e estética facial para um sorriso e rosto em harmonia."
   },
   {
     icon: Shield,
