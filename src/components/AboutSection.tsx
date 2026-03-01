@@ -42,7 +42,7 @@ export function AboutSection() {
                                     <div className="text-[#8B7968]">Pacientes Atendidos</div>
                                 </div>
                                 <div className="bg-white p-6 rounded-lg shadow-md">
-                                    <div className="text-3xl text-[#A89484] mb-2">15+</div>
+                                    <div className="text-3xl text-[#A89484] mb-2">9+</div>
                                     <div className="text-[#8B7968]">Anos de Experiência</div>
                                 </div>
                             </div>
