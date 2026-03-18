@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "@/styles/index.css";
 import "./globals.css";
+import { FacebookPixel } from "@/components/FacebookPixel";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 export const metadata: Metadata = {
   title: "Dra. Maitê Tikami - Odontologia Estética e Implantes",
@@ -14,7 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body>
+        <FacebookPixel />
+        <GoogleAnalytics />
+        {children}
+      </body>
     </html>
   );
 }
