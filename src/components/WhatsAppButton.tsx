@@ -1,6 +1,16 @@
 import { Phone } from "lucide-react";
 
+const GOOGLE_ADS_CONVERSION_SEND_TO = process.env.GOOGLE_ADS_CONVERSION_SEND_TO;
+
 export const handleClickToWhatsApp = () => {
+    if (typeof window.gtag === "function") {
+        window.gtag("event", "conversation", {
+            send_to: GOOGLE_ADS_CONVERSION_SEND_TO,
+            event_category: "contato",
+            event_label: "clique_whatsapp",
+        });
+    }
+
     const whatsappNumber = "5516994384039"; // Replace with actual WhatsApp number
     const message = encodeURIComponent("Olá! Gostaria de saber mais informações.");
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");

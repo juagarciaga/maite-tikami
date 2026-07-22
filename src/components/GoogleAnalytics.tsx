@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, Suspense } from "react";
 
 const GOOGLE_ID = process.env.NEXT_PUBLIC_GOOGLE_ID;
+const GOOGLE_ADS_ID = process.env.GOOGLE_ADS_ID;
 
 declare global {
   interface Window {
@@ -46,10 +47,36 @@ function GoogleAnalyticsInner() {
   return null;
 }
 
-export function GoogleAnalytics() {
-  if (!GOOGLE_ID) return null;
+function GoogleAdsScripts({ ga4Id }: { ga4Id?: string }) {
+  const primaryId = ga4Id ?? GOOGLE_ADS_ID;
 
-  const type = getGoogleIdType(GOOGLE_ID);
+  return (
+    <>
+      <Script
+        id="gtag-js"
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${primaryId}`}
+      />
+      <Script
+        id="gtag-inline"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('js', new Date());
+            ${ga4Id ? `gtag('config', '${ga4Id}', { page_path: window.location.pathname });` : ""}
+            gtag('config', '${GOOGLE_ADS_ID}');
+          `,
+        }}
+      />
+    </>
+  );
+}
+
+export function GoogleAnalytics() {
+  const type = GOOGLE_ID ? getGoogleIdType(GOOGLE_ID) : null;
 
   if (type === "gtm") {
     return (
@@ -88,36 +115,14 @@ export function GoogleAnalytics() {
     );
   }
 
-  // Default to GA4 for IDs like "G-XXXXXXXXXX"
-  if (type === "ga4") {
-    return (
-      <>
-        <Script
-          id="ga4-gtag"
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ID}`}
-        />
-        <Script
-          id="ga4-inline"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              window.gtag = gtag;
-              gtag('js', new Date());
-              gtag('config', '${GOOGLE_ID}', { page_path: window.location.pathname });
-            `,
-          }}
-        />
+  return (
+    <>
+      <GoogleAdsScripts ga4Id={type === "ga4" ? GOOGLE_ID : undefined} />
+      {type === "ga4" && (
         <Suspense fallback={null}>
           <GoogleAnalyticsInner />
         </Suspense>
-      </>
-    );
-  }
-
-  // Unknown ID prefix; do not inject.
-  return null;
+      )}
+    </>
+  );
 }
-
